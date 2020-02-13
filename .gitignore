@@ -1,5 +1,4 @@
 .vs/
 obj/
 bin/
-/IntroTdd/IntroTdd.Web
 /IntroTdd/.dockerignore
