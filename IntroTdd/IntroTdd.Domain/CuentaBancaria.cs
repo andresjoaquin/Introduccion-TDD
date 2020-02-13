@@ -17,6 +17,10 @@ namespace IntroTdd.Domain
 
         public void Depositar(Decimal monto)
         {
+            if (monto == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(monto));
+            }
             this.saldoInicial += monto;
         }
     }

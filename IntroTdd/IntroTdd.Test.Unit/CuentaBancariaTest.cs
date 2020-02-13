@@ -33,5 +33,15 @@ namespace IntroTdd.Test.Unit
             //Assert
             Assert.Equal(150, cuenta.SaldoActual);
         }
+
+        [Fact]
+        public void ProduceUnErrorAlRealizarUnDepositoPorMontoCero()
+        {
+            //Arrange
+            CuentaBancaria cuenta = new CuentaBancaria(100);
+
+            //Act y Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => cuenta.Depositar(0));
+        }
     }
 }
