@@ -8,7 +8,9 @@ namespace IntroTdd.Test.Unit
         [Fact]
         public void PassingTest()
         {
-            Assert.Equal(4, Add(2, 2));
+            Domain.DomainClass domainClass = new Domain.DomainClass();
+
+            Assert.Equal(4, domainClass.Add(2, 2));
         }
 
         //[Fact]
@@ -17,9 +19,5 @@ namespace IntroTdd.Test.Unit
         //    Assert.Equal(5, Add(2, 2));
         //}
 
-        int Add(int x, int y)
-        {
-            return x + y;
-        }
     }
 }
