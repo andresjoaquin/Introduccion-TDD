@@ -40,3 +40,19 @@ steps:
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Web Project'
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+
+- task: AzureWebApp@1
+  displayName: 'Deploy Web Project'
+  inputs:
+    appType: webAppLinux
+    azureSubscription: 'Azure Connection'
+    appName: 'IntroduccionCI'
+    package: $(System.ArtifactsDirectory)/**/*.zip  
