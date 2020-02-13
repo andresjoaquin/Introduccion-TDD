@@ -1,0 +1,24 @@
+﻿using IntroTdd.Domain;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Xunit;
+
+namespace IntroTdd.Test.Unit
+{
+    public class CuentaBancariaTest
+    {
+        [Fact]
+        public void RetornaElSaldoActual()
+        {
+            //Arrange
+            CuentaBancaria cuenta = new CuentaBancaria(100);
+
+            //Act
+            var saldo = cuenta.SaldoActual;
+
+            //Assert
+            Assert.Equal(100, saldo);
+        }
+    }
+}
