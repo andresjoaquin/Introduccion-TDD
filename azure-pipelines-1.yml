@@ -19,14 +19,7 @@ steps:
     command: build
     projects: '**/*.csproj'
   displayName: 'Build'
-
-#- task: DotNetCoreCLI@2
-#  inputs:
-#    command: test
-#    projects: '**/*Test.Unit/*.csproj'
-#    arguments: '--configuration $(buildConfiguration)'
-#  displayName: 'Tests'
-  
+ 
 - task: DotNetCoreCLI@2
   inputs:
     command: test
@@ -47,4 +40,3 @@ steps:
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
