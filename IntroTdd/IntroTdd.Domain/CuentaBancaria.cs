@@ -17,7 +17,7 @@ namespace IntroTdd.Domain
 
         public void Depositar(Decimal monto)
         {
-            if (monto == 0)
+            if (monto == 0 || monto > 100000000)
             {
                 throw new ArgumentOutOfRangeException(nameof(monto));
             }
