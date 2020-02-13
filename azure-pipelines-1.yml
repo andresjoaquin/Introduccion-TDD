@@ -14,6 +14,18 @@ variables:
 
 steps:
 
+- task: replacetokens@3
+  inputs:
+    rootDirectory: '$(System.DefaultWorkingDirectory)'
+    targetFiles: '**/IntroTdd.Web/Views./Shared/Layout.cshtm'
+    encoding: 'auto'
+    writeBOM: true
+    actionOnMissing: 'warn'
+    keepToken: false
+    tokenPrefix: '#{'
+    tokenSuffix: '}#'
+  displayName: 'Replace Tokens'
+
 - task: DotNetCoreCLI@2  
   inputs:       
     command: build
