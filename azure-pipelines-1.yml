@@ -13,7 +13,17 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build IntroTdd/IntroTdd.sln --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
-- script: dotnet test IntroTdd/IntroTdd.sln --configuration $(buildConfiguration)
-  displayName: 'dotnet test $(buildConfiguration)'
+# - script: dotnet build IntroTdd/IntroTdd.sln --configuration $(buildConfiguration)
+#   displayName: 'dotnet build $(buildConfiguration)'
+# - script: dotnet test IntroTdd/IntroTdd.sln --configuration $(buildConfiguration)
+#   displayName: 'dotnet test $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: build
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Tests/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
