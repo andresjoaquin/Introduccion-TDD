@@ -53,5 +53,18 @@ namespace IntroTdd.Test.Unit
             //Act y Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => cuenta.Depositar(100000001));
         }
+
+        [Fact]
+        public void ActualizaElSaldoAlRealizarUnDepositoDeCienMillones()
+        {
+            //Arrange
+            CuentaBancaria cuenta = new CuentaBancaria(100);
+
+            //Act
+            cuenta.Depositar(100000000);
+
+            //Assert
+            Assert.Equal(100000100, cuenta.SaldoActual);
+        }
     }
 }
