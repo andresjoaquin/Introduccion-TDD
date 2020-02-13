@@ -54,5 +54,5 @@ steps:
   inputs:
     appType: webAppLinux
     azureSubscription: 'Azure Connection'
-    appName: 'Introduccion CI'
+    appName: 'IntroduccionCI'
     package: $(System.ArtifactsDirectory)/**/*.zip  
