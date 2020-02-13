@@ -20,7 +20,7 @@ namespace IntroTdd.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new Cuenta());
         }
 
         public IActionResult Privacy()
@@ -32,6 +32,19 @@ namespace IntroTdd.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public IActionResult Depositar(Cuenta cuenta)
+        {
+            if (ModelState.IsValid)
+            {
+                ModelState.Clear();
+                cuenta.Saldo += cuenta.Monto;
+                cuenta.Monto = 0;
+            }
+
+            return View("Index",cuenta);
         }
     }
 }
