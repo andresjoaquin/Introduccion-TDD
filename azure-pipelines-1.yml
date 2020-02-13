@@ -17,7 +17,7 @@ steps:
 - task: replacetokens@3
   inputs:
     rootDirectory: '$(System.DefaultWorkingDirectory)'
-    targetFiles: '**/IntroTdd.Web/Views/Shared/Layout.cshtml'
+    targetFiles: '**/IntroTdd.Web/Views/Shared/_Layout.cshtml'
     encoding: 'auto'
     writeBOM: true
     actionOnMissing: 'warn'
