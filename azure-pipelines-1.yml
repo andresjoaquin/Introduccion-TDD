@@ -50,8 +50,9 @@ steps:
     zipAfterPublish: True
 
 - task: AzureWebApp@1
-displayName: 'Deploy Web Project'
+  displayName: 'Deploy Web Project'
   inputs:
+    appType: webAppLinux
     azureSubscription: 'Azure Connection'
     appName: 'Introduccion CI'
     package: $(System.ArtifactsDirectory)/**/*.zip  
