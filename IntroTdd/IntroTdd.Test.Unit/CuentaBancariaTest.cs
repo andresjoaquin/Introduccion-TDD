@@ -20,5 +20,18 @@ namespace IntroTdd.Test.Unit
             //Assert
             Assert.Equal(100, saldo);
         }
+
+        [Fact]
+        public void ActualizaElSaldoAlRealizarUnDeposito()
+        {
+            //Arrange
+            CuentaBancaria cuenta = new CuentaBancaria(100);
+
+            //Act
+            cuenta.Depositar(50);
+
+            //Assert
+            Assert.Equal(150, cuenta.SaldoActual);
+        }
     }
 }

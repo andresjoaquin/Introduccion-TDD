@@ -14,5 +14,10 @@ namespace IntroTdd.Domain
         }
 
         public Decimal SaldoActual => this.saldoInicial;
+
+        public void Depositar(Decimal monto)
+        {
+            this.saldoInicial += monto;
+        }
     }
 }
