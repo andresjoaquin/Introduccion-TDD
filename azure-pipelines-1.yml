@@ -18,12 +18,14 @@ steps:
 # - script: dotnet test IntroTdd/IntroTdd.sln --configuration $(buildConfiguration)
 #   displayName: 'dotnet test $(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  inputs:
+- task: DotNetCoreCLI@2  
+  inputs:       
     command: build
     projects: '**/*.csproj'
+  displayName: 'Build'
 - task: DotNetCoreCLI@2
   inputs:
     command: test
     projects: '**/*Test.Unit/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+  displayName: 'Tests'
