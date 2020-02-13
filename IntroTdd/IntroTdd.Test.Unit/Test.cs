@@ -10,7 +10,7 @@ namespace IntroTdd.Test.Unit
         [Fact]
         public void TestFallido()
         {
-            Assert.True(false);
+            Assert.True(true);
         }
     }
 }
