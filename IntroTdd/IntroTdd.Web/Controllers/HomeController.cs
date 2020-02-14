@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using IntroTdd.Web.Models;
+using IntroTdd.Domain;
 
 namespace IntroTdd.Web.Controllers
 {
@@ -20,7 +21,7 @@ namespace IntroTdd.Web.Controllers
 
         public IActionResult Index()
         {
-            return View(new Cuenta());
+            return View(new CuentaModel());
         }
 
         public IActionResult Privacy()
@@ -35,12 +36,21 @@ namespace IntroTdd.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Depositar(Cuenta cuenta)
+        public IActionResult Depositar(CuentaModel cuenta)
         {
             if (ModelState.IsValid)
             {
+                
+                var saldo = cuenta.Saldo;
+                var monto = cuenta.Monto;
+
                 ModelState.Clear();
-                cuenta.Saldo += cuenta.Monto;
+
+                CuentaBancaria cuentaBancaria = new CuentaBancaria(saldo);
+
+                cuentaBancaria.Depositar(monto);
+
+                cuenta.Saldo = cuentaBancaria.SaldoActual;
                 cuenta.Monto = 0;
             }
 

@@ -1,4 +1,4 @@
-﻿@model IntroTdd.Web.Models.Cuenta
+﻿@model IntroTdd.Web.Models.CuentaModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -6,12 +6,18 @@
 
 @using (Html.BeginForm("Depositar", "Home", FormMethod.Post))
 {
+    <br />
+    <br />
     @Html.LabelFor(x => x.Monto);
+    <br />
     @Html.TextBoxFor(x => x.Monto);
+    <br />
+    <br />
     @Html.LabelFor(x => x.Saldo);
+    <br />
     @Html.DisplayFor(x => x.Saldo);
     @Html.HiddenFor(x => x.Saldo);
-
+    <br />
     <br />
     <input type="submit" class="btn btn-primary" value="Depositar" />
 }

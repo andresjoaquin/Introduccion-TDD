@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntroTdd.Web", "IntroTdd.Web\IntroTdd.Web.csproj", "{EDF882EA-9FFC-46F7-B01E-33C04E7BF179}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9339872A-7B0D-47BF-9663-6A660131DD5E} = {9339872A-7B0D-47BF-9663-6A660131DD5E}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntroTdd.Domain", "IntroTdd.Domain\IntroTdd.Domain.csproj", "{9339872A-7B0D-47BF-9663-6A660131DD5E}"
 EndProject
